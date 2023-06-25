@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.asserts.SoftAssert;
 
+import com.page.object.model.LoginPage;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,19 +24,19 @@ public class StepDef {
 
 	@When("put valid Username")
 	public void put_valid_username() {
-    driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("Batch34");
+    driver.findElement(LoginPage.userName).sendKeys("Batch34");
 	  
 	}
 
 	@When("put valid  Password")
 	public void put_valid_password() {
-		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("student123@");
+		driver.findElement(LoginPage.passWord).sendKeys("student123@");
 	  
 	}
 
 	@When("click Login button")
 	public void click_login_button() {
-		driver.findElement(By.xpath("//*[@type=\"submit\"]")).click();
+		driver.findElement(LoginPage.logIn).click();
 	  
 	}
 
@@ -44,19 +46,19 @@ public class StepDef {
 	//softassert all method are nonstatic thatswhy create object
 		SoftAssert sf =new SoftAssert();
 		
-		driver.findElement(By.xpath("//*[@id=\"logoutButton\"]")).isDisplayed();
+		driver.findElement(LoginPage.logOut).isDisplayed();
 	    sf.assertAll();
 	}
 
 	@When("put invalid Username")
 	public void put_invalid_username() {
-		driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("fssdgs");
+		driver.findElement(LoginPage.userName).sendKeys("fssdgs");
 	  
 	}
 
 	@When("put invalid  Password")
 	public void put_invalid_password() {
-		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("fsdfas");
+		driver.findElement(LoginPage.passWord).sendKeys("fsdfas");
 	  
 	}
 
@@ -71,13 +73,13 @@ public class StepDef {
 
 	@When("put null Username")
 	public void put_null_username() {
-	driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("");
+	driver.findElement(LoginPage.userName).sendKeys("");
 	  
 	}
 
 	@When("put null Password")
 	public void put_null_password() {
-		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("");
+		driver.findElement(LoginPage.passWord).sendKeys("");
 	  
 	}
    
